@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Files";
+    var files = Directory.GetFiles("TextFiles");
+}
+<h1>@ViewData["Title"]</h1>
+
+<ul>
+    
+    @foreach (var file in files)
+    {
+        string inFile = file.Remove(0, 10);
+        string withOutExtension = inFile.Remove(inFile.Length - 4);
+        string onlyNumber = withOutExtension.Remove(0, 4);
+        int number = int.Parse(onlyNumber);
+        <li style="list-style: none;">
+            <a asp-controller="Files" asp-action="content" asp-route-id="@number">@withOutExtension</a>
+        </li>
+    }
+</ul>

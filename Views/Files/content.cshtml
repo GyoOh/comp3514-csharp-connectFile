@@ -1,0 +1,8 @@
+@{
+    ViewData["Title"] = "content";
+    string[] files = Directory.GetFiles("TextFiles");
+    <h1>@ViewData["Title"]</h1>
+    <div>
+        @ViewBag.Data
+    </div>
+}
